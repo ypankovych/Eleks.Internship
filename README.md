@@ -5,4 +5,4 @@ Practical task of Iazyk Nazarii, Slavik Pankovych, Nazar Melnyk for Eleks Intern
 * University: KEP
 * Course: //todo: add course you are learned on
 ## Task Info
-//todo: add the task you are doing here(text of task)
+//todo: add the task you are doing here(text of task) 

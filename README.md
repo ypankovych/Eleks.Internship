@@ -3,6 +3,6 @@ Practical task of Iazyk Nazarii, Slavik Pankovych, Nazar Melnyk for Eleks Intern
 ## Students Info
 * Name: Iazyk Nazarii, Slavik Pankovych, Nazar Melnyk
 * University: KEP
-* Course: //todo: додайте сюди курс, на якому навчаєтесь
+* Course: //todo: add course you are learned on
 ## Task Info
-//todo: додайте сюди завдання, яке ви виконуєте на практиці (текст завдання)
+//todo: add the task you are doing here(text of task)

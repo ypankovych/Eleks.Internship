@@ -3,8 +3,6 @@ import matplotlib.pyplot as plt
 
 
 def show_charts(data_names, data_values, chart_name):
-    data_names = data_names
-    data_values = data_values
     dpi = 80
     fig = plt.figure(dpi = dpi, figsize = (512 / dpi, 384 / dpi))
     mpl.rcParams.update({'font.size': 11})

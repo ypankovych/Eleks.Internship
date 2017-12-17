@@ -9,8 +9,8 @@ from threading import Thread
 import Vk_API
 from charts import show_charts
 
-
-class MyButton(ttk.Frame):
+# looks like God object anti-pattern, try to separate logic by classes
+class MyButton(ttk.Frame):  #really bad name for class
     def __init__(self, parent, text="", height=37, width=125, *args, **kwargs):
         ttk.Frame.__init__(self, parent, height=height, width=width)
 
@@ -23,7 +23,7 @@ class MyButton(ttk.Frame):
 
 class Application(tk.Tk, Vk_API.MakeAPiConnect):
     def __init__(self):
-        super().__init__()
+        super().__init__()  # it is not obvious what this code will do with multiple inheritance, it's better to use composition
         self.title('Auth')
         self.geometry('150x130')
         self.eval('tk::PlaceWindow %s center' % self.winfo_pathname(self.winfo_id()))
@@ -31,7 +31,7 @@ class Application(tk.Tk, Vk_API.MakeAPiConnect):
 
         label = tk.Label(self, text='Way of entry')
         label.pack()
-
+        # good case for decorators
         token_btn = MyButton(self, text='Token')
         token_btn._bind('<Button-1>', self.login_with_token)
         token_btn.pack()
@@ -122,6 +122,8 @@ class Application(tk.Tk, Vk_API.MakeAPiConnect):
         self.login_window.destroy()
         self.main_menu()
 
+
+    # try to separate static functions
     @staticmethod
     def login_error():
         tkinter.messagebox.showerror('Error', 'Incorrect auth data')

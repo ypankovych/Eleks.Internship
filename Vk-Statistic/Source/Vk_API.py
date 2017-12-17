@@ -18,7 +18,7 @@ class MakeAPiConnect:
         try:
             self.session = vk.AuthSession(app_id=APP_ID, user_login=login, user_password=password,
                                         scope='wall, messages, friends, groups')
-            self.vk_api = vk.API(session)
+            self.vk_api = vk.API(session)  # self.session
             return True
         except Exception as invalid_data_error:
             return False
@@ -26,7 +26,7 @@ class MakeAPiConnect:
     def delete_msgs(self, dialogs):
         for i in dialogs[1:]:
             self.vk_api.messages.deleteDialog(user_id=i['uid'])
-            sleep(0.2)
+            sleep(0.2)  # it's a bad practise to use sleep, try to use async
 
     def collect_dialogs(self):
         return self.vk_api.messages.getDialogs(count=200)
@@ -80,4 +80,4 @@ class MakeAPiConnect:
             'friends_count': friends_count,
             'age': age
         }
-        return result
+        return result  # try to return without additional variable

@@ -6,9 +6,10 @@ import tkinter.ttk as ttk
 from threading import Thread
 from tkinter.filedialog import askdirectory, askopenfilenames, asksaveasfile
 import functions
+# try to separate classes per files
 
 
-class MyButton(ttk.Frame):
+class MyButton(ttk.Frame):  # is it really good name for class
     def __init__(self, parent, text="", height=37, width=125, *args, **kwargs):
         ttk.Frame.__init__(self, parent, height=height, width=width)
 
@@ -19,7 +20,7 @@ class MyButton(ttk.Frame):
     def _bind(self, button, func):
         self._btn.bind(button, func)
 
-
+# maybe better create more than one window class for diiferent states or implement State pattern
 class MainWindow(tk.Tk):
     def __init__(self):
         super().__init__()
@@ -31,6 +32,7 @@ class MainWindow(tk.Tk):
         logo = tk.Label(self, text='Directory Cleaner', font='Helvetica 18 bold')
         logo.pack()
 
+        # good reason to use python decorators for button initializing
         choice_button = MyButton(self, text='Set dir')
         choice_button._bind('<Button-1>', self.choice_dir)
         choice_button.pack()
@@ -104,7 +106,7 @@ class MainWindow(tk.Tk):
             self.data_button._btn.config(text='Loading', state='disabled')
             dir_data = functions.get_tree(self.dir_path)
             if sum([float(dir_data[0].split()[0]), dir_data[1]]):
-                tkinter.messagebox.showinfo('Information', f'Total size: {dir_data[0]}\nTotal count: {dir_data[1]}')
+                tkinter.messagebox.showinfo('Information', 'Total size: {dir_data[0]}\nTotal count: {dir_data[1]}')
             else:
                 tkinter.messagebox.showinfo('Information', 'Folder is empty')
             self.data_button._btn.config(text='Get dir info', state='active')
@@ -120,7 +122,7 @@ class MainWindow(tk.Tk):
                 counter += 1
                 picked_files.append(file)
             functions.change_log(picked_files)
-            tkinter.messagebox.showinfo('Information', f'{counter} files was deleted.')
+            tkinter.messagebox.showinfo('Information', '{counter} files was deleted.')
 
     def save_results(self, event):
         target_file = asksaveasfile(mode='w', defaultextension=".txt", initialfile='Modiffed files')

@@ -7,6 +7,8 @@ import tkinter.messagebox
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 
+# it will be better to separate functions by work they do
+
 
 def convert_bytes(num):
     for x in ['bytes', 'KB', 'MB', 'GB', 'TB']:
@@ -18,12 +20,13 @@ def convert_bytes(num):
 def get_files_list(folder_path):
     files_tree = os.walk(folder_path)
     result = [os.path.join(folder, file) for folder, _, files in files_tree for file in files]
+    # maybe better immediately return this set without additional variable
     return result
 
 
 def get_tree(dir_name):
     all_files = get_files_list(dir_name)
-    total_count = len(all_files)
+    total_count = len(all_files) # another unnecessary variable
     total_size = 0
     for file in all_files:
         total_size += os.stat(file).st_size
@@ -37,6 +40,7 @@ def delete_files(file):
 
 def change_log(file_names):
     current_path = os.path.join(os.path.dirname(__file__), 'log.json')
+    # if you read and write into file maybe better to open him only once
     with open(current_path, mode='r', encoding='utf8') as log:
         current_data = json.load(log)
         date = datetime.datetime.strftime(datetime.datetime.now(), "%Y.%m.%d %H:%M:%S")
@@ -52,7 +56,7 @@ def change_log(file_names):
 def last_changes(dir_path):
     all_files = get_files_list(dir_path)
     date = datetime.datetime.now()
-    delta = datetime.timedelta(days=14)
+    delta = datetime.timedelta(days=14)  # another unnecessary variable
     difference = date - delta
     for file in all_files:
         edit_time = os.stat(file).st_mtime
@@ -77,8 +81,8 @@ def show_charts(current_user, data):
     data_names = [x for x in data[current_user]]
     data_values = [len(data[current_user][y]) for y in data[current_user]]
 
-    dpi = 80
-    fig = plt.figure(dpi = dpi, figsize = (512 / dpi, 384 / dpi))
+    dpi = 80  # looks like magic number
+    fig = plt.figure(dpi = dpi, figsize = (512 / dpi, 384 / dpi))  # is this variable uses
     mpl.rcParams.update({'font.size': 11})
 
     plt.title('Deleted files for all time')

@@ -3,11 +3,11 @@ import matplotlib.pyplot as plt
 
 
 def show_charts(data_names, data_values, chart_name):
-    data_names = data_names
+    data_names = data_names  # really don't understand why you do it
     data_values = data_values
-    dpi = 80
-    fig = plt.figure(dpi = dpi, figsize = (512 / dpi, 384 / dpi))
-    mpl.rcParams.update({'font.size': 11})
+    dpi = 80  # magic number
+    fig = plt.figure(dpi = dpi, figsize = (512 / dpi, 384 / dpi))  # unused variable
+    mpl.rcParams.update({'font.size': 11})  # PEP8 unexpected spaces
     plt.title(chart_name)
     plt.pie(data_values,
             labels = data_values,

@@ -1,7 +1,7 @@
-# Eleks.Internship.Iazyk_Nazarii_Slavik_Pankovych_Dmytro_Yakovina
-Practical task of Iazyk Nazarii, Slavik Pankovych, Dmytro Yakovina for Eleks Internship (November 2017)
+# Eleks.Internship.Slavik_Pankovych
+Practical task of Slavik Pankovych for Eleks Internship (November 2017)
 ## Students Info
-* Name: Iazyk Nazarii, Slavik Pankovych, Dmytro Yakovina
+* Name: Slavik Pankovych
 * University: KEP
 * Course: 4
 ## Task Info

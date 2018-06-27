@@ -1,9 +1,4 @@
-# Eleks.Internship.Slavik_Pankovych
-Practical task of Slavik Pankovych for Eleks Internship (November 2017)
-## Students Info
-* Name: Slavik Pankovych
-* University: KEP
-* Course: 4
+# Eleks.Internship.
 ## Task Info
 ### 1. [VK Statistic](Vk-Statistic/Source)
 #### Estimate - 80h (120h with additional challenges)
